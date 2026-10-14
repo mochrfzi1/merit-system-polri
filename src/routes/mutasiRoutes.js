@@ -3,6 +3,9 @@ const router = express.Router();
 const mutasiController = require('../controllers/mutasiController');
 const { validateMutasi } = require('../validators/mutasiValidator');
 
+ //validasi hak akses
+const { requireRole } = require('../middlewares/auth');
+router.use(requireRole(['Admin','operator']));
 /**
  * @swagger
  * tags:

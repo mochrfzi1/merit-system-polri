@@ -35,9 +35,7 @@ const options = {
       { name: 'Dsp' },
       { name: 'DspPangkat' },
       { name: 'Mutasi' },
-      { name: 'Penempatan' },
-      { name: 'TingkatPendidikan' },
-      { name: 'RiwayatPendidikan' }
+      { name: 'Penempatan' }
     ],
     components: {
       securitySchemes: {

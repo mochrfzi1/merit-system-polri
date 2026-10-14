@@ -17,8 +17,8 @@ const getById = async (id) => {
 };
 
 const create = async (data) => {
-  const query = 'INSERT INTO golongan_pangkat_polri (nama_golongan, usia_pensiun) VALUES (?,?)';
-  const values = [data.nama_golongan, data.usia_pensiun];
+  const query = 'INSERT INTO golongan_pangkat_polri (nama_golongan) VALUES (?)';
+  const values = [data.nama_golongan];
   const [result] = await db.query(query, values);
   
   if (!result.insertId) {
@@ -29,9 +29,9 @@ const create = async (data) => {
 };
 
 const update = async (id, data) => {
-  const setQuery = 'nama_golongan = ?,usia_pensiun = ?';
+  const setQuery = 'nama_golongan = ?';
   const query = `UPDATE golongan_pangkat_polri SET ${setQuery} WHERE id_golongan_polri = ?`;
-  const values = [data.nama_golongan,data.usia_pensiun, id];
+  const values = [data.nama_golongan, id];
   const [result] = await db.query(query, values);
   
   if (result.affectedRows === 0) {

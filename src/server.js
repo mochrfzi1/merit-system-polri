@@ -22,8 +22,7 @@ const dspRoutes = require('./routes/dspRoutes');
 const dspPangkatRoutes = require('./routes/dspPangkatRoutes');
 const mutasiRoutes = require('./routes/mutasiRoutes');
 const penempatanRoutes = require('./routes/penempatanRoutes');
-const tingkatPendidikanRoutes = require('./routes/tingkatPendidikanRoutes');
-const riwayatPendidikanRoutes = require('./routes/riwayatPendidikanRoutes');
+
 
 const { authenticateToken } = require('./middlewares/auth');
 // Import Swagger config
@@ -62,8 +61,7 @@ app.use('/api/dsp', dspRoutes);
 app.use('/api/dsp_pangkat', dspPangkatRoutes);
 app.use('/api/mutasi', mutasiRoutes);
 app.use('/api/penempatan', penempatanRoutes);
-app.use('/api/tingkat_pendidikan', tingkatPendidikanRoutes);
-app.use('/api/riwayat_pendidikan', riwayatPendidikanRoutes);
+
 
 const errorHandler = require('./middlewares/errorHandler');
 app.use(errorHandler);

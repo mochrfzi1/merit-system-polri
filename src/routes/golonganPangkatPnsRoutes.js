@@ -3,6 +3,8 @@ const router = express.Router();
 const golonganPangkatPnsController = require('../controllers/golonganPangkatPnsController');
 const { validateGolonganPangkatPns } = require('../validators/golonganPangkatPnsValidator');
 
+const { requireRole } = require('../middlewares/auth');
+router.use(requireRole(['Admin']));
 /**
  * @swagger
  * tags:
@@ -57,8 +59,6 @@ router.get('/:id', golonganPangkatPnsController.getById);
  *             properties:
  *               nama_golongan:
  *                 type: string
- *               usia_pensiun:
- *                 type: integer
  *     responses:
  *       201:
  *         description: Created
@@ -88,8 +88,6 @@ router.post('/', validateGolonganPangkatPns, golonganPangkatPnsController.create
  *             properties:
  *               nama_golongan:
  *                 type: string
- *               usia_pensiun:
- *                 type: integer
  *     responses:
  *       200:
  *         description: Success

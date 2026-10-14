@@ -3,6 +3,9 @@ const router = express.Router();
 const jabatanPangkatController = require('../controllers/jabatanPangkatController');
 const { validateJabatanPangkat } = require('../validators/jabatanPangkatValidator');
 
+ //validasi hak akses
+const { requireRole } = require('../middlewares/auth');
+router.use(requireRole(['Admin']));
 /**
  * @swagger
  * tags:

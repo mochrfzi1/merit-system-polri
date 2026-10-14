@@ -3,6 +3,9 @@ const router = express.Router();
 const golonganPangkatPolriController = require('../controllers/golonganPangkatPolriController');
 const { validateGolonganPangkatPolri } = require('../validators/golonganPangkatPolriValidator');
 
+ //validasi hak akses
+const { requireRole } = require('../middlewares/auth');
+router.use(requireRole(['Admin']));
 /**
  * @swagger
  * tags:
@@ -57,8 +60,6 @@ router.get('/:id', golonganPangkatPolriController.getById);
  *             properties:
  *               nama_golongan:
  *                 type: string
- *               usia_pensiun:
- *                 type: integer
  *     responses:
  *       201:
  *         description: Created
@@ -88,8 +89,6 @@ router.post('/', validateGolonganPangkatPolri, golonganPangkatPolriController.cr
  *             properties:
  *               nama_golongan:
  *                 type: string
- *               usia_pensiun:
- *                 type: integer
  *     responses:
  *       200:
  *         description: Success

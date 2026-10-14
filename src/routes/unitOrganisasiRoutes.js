@@ -3,6 +3,9 @@ const router = express.Router();
 const unitOrganisasiController = require('../controllers/unitOrganisasiController');
 const { validateUnitOrganisasi } = require('../validators/unitOrganisasiValidator');
 
+ //validasi hak akses
+const { requireRole } = require('../middlewares/auth');
+router.use(requireRole(['Admin']));
 /**
  * @swagger
  * tags:
